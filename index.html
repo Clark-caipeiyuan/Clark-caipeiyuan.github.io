@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link id="icoLink" rel="shortcut icon" href="" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.png" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover" name="viewport" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no,address=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="format-detection" content="telephone=yes" />
+
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .back-su {
+        position: fixed;
+        top: 6px;
+        right: 11%;
+        z-index: 10000;
+        display: none;
+        width: 22px;
+        height: 22px;
+      }
+      .back-pre-su {
+        position: fixed;
+        top: 8px;
+        left: 1%;
+        z-index: 10000;
+        display: none;
+        width: 23px;
+        height: 23px;
+      }
+      body {
+        -webkit-text-size-adjust: 100% !important;
+      }
+    </style>
+    <script>
+      !(function(x) {
+        function w() {
+          var v,
+            u,
+            t,
+            tes,
+            s = x.document,
+            r = s.documentElement,
+            a = r.getBoundingClientRect().width;
+          if (!v && !u) {
+            var n = !!x.navigator.appVersion.match(/AppleWebKit.*Mobile.*/);
+            v = x.devicePixelRatio;
+            tes = x.devicePixelRatio;
+            (v = n ? v : 1), (u = 1 / v);
+          }
+          if (a >= 640) {
+            r.style.fontSize = '40px';
+          } else {
+            if (a <= 320) {
+              r.style.fontSize = '20px';
+            } else {
+              r.style.fontSize = (a / 320) * 20 + 'px';
+            }
+          }
+        }
+        x.addEventListener('resize', function() {
+          w();
+        });
+        w();
+      })(window);
+    </script>
+    <!-- VConsole -->
+    <!-- <script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script> -->
+    <!-- <script>
+      // VConsole will be exported to `window.VConsole` by default.
+      var vConsole = new window.VConsole();
+    </script> -->
+    <!-- 图片验证码 -->
+    <script src="https://g.alicdn.com/AWSC/AWSC/awsc.js"></script>
+    <script src="https://eshop-appdownload.oss-cn-shanghai.aliyuncs.com/npm/eruda"></script>
+    <script>
+      eruda.init();
+    </script>
+    <script
+      type="text/javascript"
+      src="https://api.map.baidu.com/api?v=3.0&ak=QG1gfBDUltQuAnFG8pIrVakMuHDve8ux"
+    ></script>
+    <!-- 百度统计 -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement('script');
+        hm.src = 'https://hm.baidu.com/hm.js?782de5e2b5d44150be1bb2d7d27f9658';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <!-- 设置字体样式 -->
+    <script>
+      (function() {
+        if (typeof WeixinJSBridge == 'object' && typeof WeixinJSBridge.invoke == 'function') {
+          handleFontSize();
+        } else {
+          if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', handleFontSize, false);
+          } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', handleFontSize);
+            document.attachEvent('onWeixinJSBridgeReady', handleFontSize);
+          }
+        }
+        function handleFontSize() {
+          // 设置网页字体为默认大小
+          WeixinJSBridge.invoke('setFontSizeCallback', {fontSize: 0});
+          // 重写设置网页字体大小的事件
+          WeixinJSBridge.on('menu:setfont', function() {
+            WeixinJSBridge.invoke('setFontSizeCallback', {fontSize: 0});
+          });
+        }
+      })();
+    </script>
+  <link href="/css/app.9c8b41f9d5d154d69cdd.css" rel="stylesheet"></head>
+  <body>
+  <!-- 加载微信网页open-sdk -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+  <!-- 加载客服 -->
+  <script src="https://ykf-webchat.7moor.com/javascripts/7moorInit.js?accessId=446bda10-8b9c-11eb-9417-a5418feabb76&autoShow=false&language=ZHCN"></script>
+  <!-- 加载百度统计 和 客服统计 -->
+  <!--<script type="text/javascript">-->
+    <!--window.onload = function() {-->
+      <!--var s = document.getElementsByTagName('script')[0];-->
+      <!--// 百度统计-->
+      <!--var hm = document.createElement('script');-->
+      <!--hm.src = 'https://hm.baidu.com/hm.js?782de5e2b5d44150be1bb2d7d27f9658';-->
+      <!--s.parentNode.insertBefore(hm, s);-->
+      <!--// 客服统计-->
+      <!--var ykf = document.createElement('script');-->
+      <!--ykf.src = 'https://ykf-webchat.7moor.com/javascripts/7moorInit.js?accessId=446bda10-8b9c-11eb-9417-a5418feabb76&autoShow=false&language=ZHCN';-->
+      <!--s.parentNode.insertBefore(ykf, s);-->
+    <!--}-->
+  <!--</script>-->
+    <div id="app"></div>
+    <!-- 苏工惠 -->
+    <div class="back-su" id="close-su">
+      <img src="https://sbc-ximg.oss-cn-shanghai.aliyuncs.com/close-su.png" style="width: 100%; height:100%" />
+    </div>
+    <div class="back-pre-su" id="back-su">
+      <img src="https://sbc-ximg.oss-cn-shanghai.aliyuncs.com/back-su.png" style="width: 100%; height:100%" />
+    </div>
+    <form id="uploadForm" style="display: none">
+      <input id="uploadInput" type="file" accept="image/*" style="display: none" />
+    </form>
+    <script>
+      let uaSu = navigator.userAgent.includes('BSZFUTS');
+      // let uaSu = true;
+      var mainPageHref = window.location.host;
+      if(uaSu) {
+        setInterval(function () {
+        var locationHref = window.location.href;
+        console.log('当前地址：'+locationHref)
+        console.log('入口host: '+mainPageHref)
+        var indexHref1 = mainPageHref+"?channelType=0";
+        var indexHref4 = mainPageHref+"/?channelType=0";
+        var indexHref5 = mainPageHref+"?channelType=10000";
+        var indexHref6 = mainPageHref+"/?channelType=10000";        
+        var indexHref2 = mainPageHref+'/pages/index/index?channelType=0';
+        var indexHref3 = mainPageHref+'pages/index/index?channelType=0';
+        var indexHref7 = mainPageHref+'/pages/index/index?channelType=10000';
+        var indexHref8 = mainPageHref+'pages/index/index?channelType=10000';
+        if(locationHref.includes(indexHref1)
+          || locationHref.includes(indexHref2)
+          || locationHref.includes(indexHref3)
+          || locationHref.includes(indexHref4)
+          || locationHref.includes(indexHref5)
+          || locationHref.includes(indexHref6)
+          || locationHref.includes(indexHref7)
+          || locationHref.includes(indexHref8)                                        
+          ) {
+          document.getElementById('close-su').style.display='block';
+          document.getElementById('back-su').style.display='none';
+        } else {
+          document.getElementById('close-su').style.display='none';
+          document.getElementById('back-su').style.display='block';
+        }
+        }, 500);
+      }
+
+      window.onload = function () {
+        handleSuGongHuiBtn();
+      }
+
+      function handleSuGongHuiBtn() {
+        let flag = 0; //标记是拖曳还是点击
+        let flag2 = 0; //标记是拖曳还是点击
+        let closeSuBtn = document.getElementById('close-su');
+        let backSuBtn = document.getElementById('back-su');
+        let disX, L, T, starX, starY, starXEnd, starYEnd;
+        let disX2, L2, T2, starX2, starY2, starXEnd2, starYEnd2;
+        if (uaSu) {
+          closeSuBtn.style.display = 'block';
+          backSuBtn.style.display = 'none';
+        } else {
+          closeSuBtn.style.display = 'none';
+          backSuBtn.style.display = 'none';
+        }
+        closeSuBtn.addEventListener('touchstart', function (e) {
+          flag = 0;
+          e.preventDefault(); //阻止触摸时页面的滚动，缩放
+          disX = e.touches[0].clientX - this.offsetLeft;
+          disY = e.touches[0].clientY - this.offsetTop;
+          //手指按下时的坐标
+          starX = e.touches[0].clientX;
+          starY = e.touches[0].clientY;
+          //console.log(disX);
+        });
+        closeSuBtn.addEventListener('touchmove', function (e) {
+          L = e.touches[0].clientX - disX;
+          T = e.touches[0].clientY - disY;
+          //移动时 当前位置与起始位置之间的差值
+          starXEnd = e.touches[0].clientX - starX;
+          starYEnd = e.touches[0].clientY - starY;
+          if (Math.abs(starXEnd) > 4 || Math.abs(starYEnd) > 4) {
+            flag = 1;
+          }
+          //console.log(L);
+          if (L < 0) { //限制拖拽的X范围，不能拖出屏幕
+            L = 0;
+          } else if (L > document.documentElement.clientWidth - this.offsetWidth) {
+            L = document.documentElement.clientWidth - this.offsetWidth;
+          }
+          if (T < 0) { //限制拖拽的Y范围，不能拖出屏幕
+            T = 0;
+          } else if (T > document.documentElement.clientHeight - this.offsetHeight) {
+            T = document.documentElement.clientHeight - this.offsetHeight;
+          }
+          this.style.left = L + 'px';
+          this.style.top = T + 'px';
+        });
+        closeSuBtn.addEventListener('touchend', function (e) {
+          //判断滑动方向
+          if (flag === 0) { //点击
+            window.location.href = 'bszfuts://backAppViewController';
+          }
+        });
+        backSuBtn.addEventListener('touchstart', function (e) {
+          flag2 = 0;
+          e.preventDefault(); //阻止触摸时页面的滚动，缩放
+          disX2 = e.touches[0].clientX - this.offsetLeft;
+          disY2 = e.touches[0].clientY - this.offsetTop;
+          //手指按下时的坐标
+          starX2 = e.touches[0].clientX;
+          starY2 = e.touches[0].clientY;
+          //console.log(disX);
+        });
+        backSuBtn.addEventListener('touchmove', function (e) {
+          L2 = e.touches[0].clientX - disX2;
+          T2 = e.touches[0].clientY - disY2;
+          //移动时 当前位置与起始位置之间的差值
+          starXEnd2 = e.touches[0].clientX - starX2;
+          starYEnd2 = e.touches[0].clientY - starY2;
+          if (Math.abs(starXEnd2) > 4 || Math.abs(starYEnd2) > 4) {
+            flag2 = 1;
+          }
+          //console.log(L);
+          if (L2 < 0) { //限制拖拽的X范围，不能拖出屏幕
+            L2 = 0;
+          } else if (L2 > document.documentElement.clientWidth - this.offsetWidth) {
+            L2 = document.documentElement.clientWidth - this.offsetWidth;
+          }
+          if (T2 < 0) { //限制拖拽的Y范围，不能拖出屏幕
+            T2 = 0;
+          } else if (T2 > document.documentElement.clientHeight - this.offsetHeight) {
+            T2 = document.documentElement.clientHeight - this.offsetHeight;
+          }
+          this.style.left = L2 + 'px';
+          this.style.top = T2 + 'px';
+        });
+        backSuBtn.addEventListener('touchend', function (e) {
+          if (flag2 === 0) {
+            window.history.back()
+          }
+        });
+      }
+    </script>
+    <script>
+      let deviceTag;
+      (function() {
+        var canvas = document.createElement('canvas'),
+          gl = canvas.getContext('experimental-webgl'),
+          debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        deviceTag = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      })();
+      let ua = window.navigator.userAgent.toLowerCase();
+
+      //如果是真机 deviceTage==Apple GPU ,如果是电脑网页模拟器 deviceTage==Apple M1
+      // alert(screen.height+'--'+ screen.width+ua)
+      // 8 667-375 8p 736-414
+
+      //se 667-375
+      //11 896-414  11pro 812-375 11pro max  896-414
+      //12 844-390 12mini 812-375 12pro 844-390  12pro max  926-428
+      if (ua.match(/MicroMessenger/i) == 'micromessenger' || ua.match(/_SQ_/i) == '_sq_') {
+        //微信浏览器
+        let x = document.getElementById('app');
+        x.style.height = 'calc(100vh)';
+      } else {
+        // 那么多浏览器都有safari字符串
+        // 在网页模拟器里面确实有高度上升
+
+        let isSafari = ua.indexOf('safari') !== -1 && ua.indexOf('browser') === -1 && ua.indexOf('android') === -1;
+        // 普通浏览器
+        // let isChrome = window.navigator.userAgent.indexOf("Chrome") > -1;
+        // if (isSafari && deviceTag == 'Apple GPU') {
+        //   let x = document.getElementById('app');
+        //   if (screen.height <= 736) {
+        //     x.style.height = 'calc(100vh - 75px)';
+        //   } else {
+        //     x.style.height = 'calc(100vh - 112px)';
+        //   }
+        // } else {
+        // }
+      }
+    </script>
+    <script type="text/javascript">
+      function callByEshopAndroidParam(msg1) {
+        console.log('callByAndroid_param');
+        console.log('Js收到消息：' + msg1);
+      }
+      function callByAndroidMoreParams(objs, location, latitude, longitude) {
+        console.log(
+          'JS收消息',
+          'Js收到消息：' +
+            'id:' +
+            objs.id.toString() +
+            ' name:' +
+            objs.name +
+            ' age:' +
+            objs.age.toString() +
+            msg2 +
+            msg3,
+        );
+        return 'ok';
+      }
+    </script>
+  <script type="text/javascript" src="/js/app.9c8b41f9d5d154d69cdd.js"></script></body>
+</html>
